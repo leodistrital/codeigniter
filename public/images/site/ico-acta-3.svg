@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+]>
+<svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="25px" height="25px" viewBox="0 0 25 25" enable-background="new 0 0 25 25" xml:space="preserve">
+<path fill="#b6b5e1" d="M1.7,1.7h21.7v21.7H1.7V1.7z M0,25h25V0H0V25z"/>
+<rect x="9" y="6.7" fill="#b6b5e1" width="11" height="1.7"/>
+<rect x="5" y="6.7" fill="#b6b5e1" width="2" height="1.7"/>
+<rect x="5" y="10" fill="#b6b5e1" width="15" height="1.7"/>
+<rect x="5" y="13.3" fill="#b6b5e1" width="11" height="1.7"/>
+<rect x="5" y="16.7" fill="#b6b5e1" width="8" height="1.7"/>
+</svg>
