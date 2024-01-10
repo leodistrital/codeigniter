@@ -20,5 +20,3 @@
 <body>
     <!--Main wrapper-->
     <div id="mainWrapper" class="isPc ">
-        <!-- <div id="pageLoading"></div>   SUPER IMPORTANTE EL CARGANDO  PARA NO MOLESTE ENDESARROLLO
-    -->
