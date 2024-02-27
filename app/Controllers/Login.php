@@ -21,6 +21,8 @@ class Login extends BaseController
 		$password = $this->request->getVar('password');
 
 		$user = $userModel->where('susu', $email)->first();
+
+		//echo para git
 		// $user = $userModel->where('log_usu', $email)->first();
 		// echo $user->getCompiledSelect();
 		// print_r($user);
