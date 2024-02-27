@@ -1,8 +1,11 @@
 <?php
 echo $this->include("components/cabezote/head");
 echo $this->include('components/cabezote/header');
-echo view_cell('\App\Libraries\ViewSitio::getListaEdiciones', ['versionConsulta' => $versionConsulta, 'anionConsulta'
-=> $anionConsulta]);
+echo view_cell('\App\Libraries\ViewSitio::getListaEdiciones', [
+    'versionConsulta' => $versionConsulta,
+    'anionConsulta'
+    => $anionConsulta
+]);
 ?>
 <!--Main Content-->
 <section class="mainContent">

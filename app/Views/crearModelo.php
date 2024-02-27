@@ -23,10 +23,10 @@
 
 	<section>
 		<?php
-		$DateAndTime = date('m-d-Y h:i:s a', time());  
+		$DateAndTime = date('m-d-Y h:i:s a', time());
 		$str = <<<EOD
 <?php
-namespace App\Models;
+namespace App\Models\api;
 use CodeIgniter\Model;
 
 class $nombreModelo extends Model
@@ -121,22 +121,22 @@ EOD;
 
 		<?php
 
-		$nombre_fichero = "../app/Models/" . $nombreModelo . ".php";
+		$nombre_fichero = "../app/Models/api/" . $nombreModelo . ".php";
 
 		if (file_exists($nombre_fichero)) {
 			unlink($nombre_fichero);
 			echo "si existe";
-		} 
+		}
 
 		$txt = fopen($nombre_fichero, 'a') or die('Problemas al crear el archivo');
 		fwrite($txt, $str);
 		fclose($txt)
-		?>
+			?>
 
 	</section>
 
 
-	
+
 </body>
 
 </html>

@@ -13,15 +13,15 @@ use App\Models\web\Periodista_anoWebModel;
 use App\Models\web\Simon_bolivarWebModel;
 use App\Models\web\VidaobraWebModel;
 
-class Home extends  MyApiRest
+class Home extends MyApiRest
 {
-	protected $format    = 'json';
+	protected $format = 'json';
 
 	public function index($edicion = 0)
 	{
 		//edicion actual ok
 		$simonBolivar = new Simon_bolivarWebModel();
-		['ano_sim' => $ano_sim, 'ver_sim' => $ver_sim, 'cod_sim' => $codigosim, 'pdf_act_sim' => $pdfactajurado, 'pdf_dis_sim' => $pdfdiscursojurado  ,'vid_dis_sim' => $videodiscursojurado] = $simonBolivar->edicionActual($edicion);
+		['ano_sim' => $ano_sim, 'ver_sim' => $ver_sim, 'cod_sim' => $codigosim, 'pdf_act_sim' => $pdfactajurado, 'pdf_dis_sim' => $pdfdiscursojurado, 'vid_dis_sim' => $videodiscursojurado] = $simonBolivar->edicionActual($edicion);
 
 		//vida y obra
 		$VidaobraModel = new VidaobraWebModel();
@@ -61,9 +61,15 @@ class Home extends  MyApiRest
 		if ($ano_sim < 2012)
 			return view('home-old', [
 				'codigosim' => $codigosim,
-				'versionConsulta' => $ver_sim, 'anionConsulta' => $ano_sim, 'pdfactajurado' => $pdfactajurado,
-				'pdfdiscursojurado' => $pdfdiscursojurado, 'vidaobra' => $VidaobraData, 'periodistaAnoData' => $periodistaAnoData,
-				'juradosData' => $juradosData, 'categoriasData' => $categoriasOld, 'invitadosData' => $invitadosData,
+				'versionConsulta' => $ver_sim,
+				'anionConsulta' => $ano_sim,
+				'pdfactajurado' => $pdfactajurado,
+				'pdfdiscursojurado' => $pdfdiscursojurado,
+				'vidaobra' => $VidaobraData,
+				'periodistaAnoData' => $periodistaAnoData,
+				'juradosData' => $juradosData,
+				'categoriasData' => $categoriasOld,
+				'invitadosData' => $invitadosData,
 				'discursosData' => $discursosData,
 				'videos' => $hanadores_historicoData
 			]);
@@ -71,8 +77,18 @@ class Home extends  MyApiRest
 			return view(
 				'home',
 				[
-					'codigosim' => $codigosim, 'videodiscursojurado' =>$videodiscursojurado,
-					'versionConsulta' => $ver_sim, 'anionConsulta' => $ano_sim, 'pdfactajurado' => $pdfactajurado, 'pdfdiscursojurado' => $pdfdiscursojurado, 'vidaobra' => $VidaobraData, 'periodistaAnoData' => $periodistaAnoData, 'juradosData' => $juradosData, 'categoriasData' => $categoriasData, 'invitadosData' => $invitadosData, 'discursosData' => $discursosData,
+					'codigosim' => $codigosim,
+					'videodiscursojurado' => $videodiscursojurado,
+					'versionConsulta' => $ver_sim,
+					'anionConsulta' => $ano_sim,
+					'pdfactajurado' => $pdfactajurado,
+					'pdfdiscursojurado' => $pdfdiscursojurado,
+					'vidaobra' => $VidaobraData,
+					'periodistaAnoData' => $periodistaAnoData,
+					'juradosData' => $juradosData,
+					'categoriasData' => $categoriasData,
+					'invitadosData' => $invitadosData,
+					'discursosData' => $discursosData,
 					'videos' => $hanadores_historicoData
 				]
 			);
@@ -87,7 +103,7 @@ class Home extends  MyApiRest
 	}
 
 
-	public function  jurado($codigo)
+	public function jurado($codigo)
 	{
 		//vida y obra
 		$jurados = new JuradosWebModel();
@@ -114,7 +130,7 @@ class Home extends  MyApiRest
 			$categoriasOld[$i]['ganadores'] = $data;
 			$i++;
 		}
-		return  $categoriasOld;
+		return $categoriasOld;
 	}
 
 	public function ganadoresCategoriaOld($cod_cat, $annio_cat)

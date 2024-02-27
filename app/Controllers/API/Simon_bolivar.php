@@ -2,7 +2,7 @@
 
 namespace App\Controllers\API;
 
-use App\Models\Simon_bolivarApiModel;
+use App\Models\api\Simon_bolivarApiModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class Simon_bolivar extends ResourceController
@@ -55,4 +55,4 @@ class Simon_bolivar extends ResourceController
         return $this->respond($data, 200);
     }
 }
-/* fecha de creacion: 12-18-2023 04:12:01 pm */
+/* fecha de creacion: 01-22-2024 01:04:45 pm */

@@ -41,8 +41,6 @@ class ViewSitio
 
     public function getListaEdiciones($versionConsulta = 0, $anionConsulta = 0)
     {
-
-        // return 'xxxxxxxxxxxx';
         $aniionsPSB = new AnniosPSBWebModel();
         $grupoItem = new AnniosSedWebModel();
         $aniosIndividual = $aniionsPSB->listaindividual();

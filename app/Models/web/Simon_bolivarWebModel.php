@@ -13,7 +13,7 @@ class Simon_bolivarWebModel extends Model
 	protected $returnType = 'array';
 	protected $useSoftDeletes = true;
 	protected $protectFields = true;
-	protected $allowedFields = ["ver_sim", "ano_sim", "ape_ini_sim", "ape_fin_sim", "ape_act_sim", "ins_ini_sim", "ins_fin_sim", "ins_act_sim", "pro_ini_sim", "pro_fin_sim", "pro_act_sim", "stre_ini_sim", "stre_fin_sim", "stre_act_sim", "pdf_act_sim", "pdf_bas_sim", "url_str_sim", "act_str_sim", "des_gan_sim", "img_dis_sim", "img_gan_sim", "img_inv_sim", "cod_gal_sim", "edi_sim", "vid_dis_sim", "pdf_dis_sim", "fec_crea", "fec_modif", "usu_acce", "reg_eli"];
+	protected $allowedFields = ["ver_sim", "ano_sim", "ape_ini_sim", "ape_fin_sim", "ape_act_sim", "ins_ini_sim", "ins_fin_sim", "ins_act_sim", "pro_ini_sim", "pro_fin_sim", "pro_act_sim", "stre_ini_sim", "stre_fin_sim", "stre_act_sim", "pdf_act_sim", "pdf_bas_sim", "url_str_sim", "act_str_sim", "des_gan_sim", "img_dis_sim", "img_gan_sim", "img_inv_sim", "cod_gal_sim", "edi_sim", "vid_dis_sim", "pdf_dis_sim", "fec_crea", "fec_modif", "usu_acce", "reg_eli", 'act_sim'];
 
 	// Dates
 	protected $useTimestamps = true;
@@ -41,7 +41,7 @@ class Simon_bolivarWebModel extends Model
 
 	public function listatardatos($id = 0)
 	{
-		$array = ["cod_sim", "ver_sim", "ano_sim", "ape_ini_sim", "ape_fin_sim", "ape_act_sim", "ins_ini_sim", "ins_fin_sim", "ins_act_sim", "pro_ini_sim", "pro_fin_sim", "pro_act_sim", "stre_ini_sim", "stre_fin_sim", "stre_act_sim", "pdf_act_sim", "pdf_bas_sim", "url_str_sim", "act_str_sim", "des_gan_sim", "img_dis_sim", "img_gan_sim", "img_inv_sim", "cod_gal_sim", "edi_sim", "vid_dis_sim", "pdf_dis_sim", "fec_crea", "fec_modif", "usu_acce", "reg_eli"];
+		$array = ["cod_sim", "ver_sim", "ano_sim", "ape_ini_sim", "ape_fin_sim", "ape_act_sim", "ins_ini_sim", "ins_fin_sim", "ins_act_sim", "pro_ini_sim", "pro_fin_sim", "pro_act_sim", "stre_ini_sim", "stre_fin_sim", "stre_act_sim", "pdf_act_sim", "pdf_bas_sim", "url_str_sim", "act_str_sim", "des_gan_sim", "img_dis_sim", "img_gan_sim", "img_inv_sim", "cod_gal_sim", "edi_sim", "vid_dis_sim", "pdf_dis_sim", "fec_crea", "fec_modif", "usu_acce", "reg_eli", 'act_sim'];
 		if ($id == 0) {
 			$data = $this->select($array)->findAll();
 		} else {
@@ -52,9 +52,9 @@ class Simon_bolivarWebModel extends Model
 
 	public function edicionActual($id = 0)
 	{
-		$array = ["cod_sim", "ver_sim", "ano_sim", "ape_ini_sim", "ape_fin_sim", "ape_act_sim", "ins_ini_sim", "ins_fin_sim", "ins_act_sim", "pro_ini_sim", "pro_fin_sim", "pro_act_sim", "stre_ini_sim", "stre_fin_sim", "stre_act_sim", "pdf_act_sim", "pdf_bas_sim", "url_str_sim", "act_str_sim", "des_gan_sim", "img_dis_sim", "img_gan_sim", "img_inv_sim", "cod_gal_sim", "edi_sim", "vid_dis_sim", "pdf_dis_sim", "fec_crea", "fec_modif", "usu_acce", "reg_eli"];
+		$array = ["cod_sim", "ver_sim", "ano_sim", "ape_ini_sim", "ape_fin_sim", "ape_act_sim", "ins_ini_sim", "ins_fin_sim", "ins_act_sim", "pro_ini_sim", "pro_fin_sim", "pro_act_sim", "stre_ini_sim", "stre_fin_sim", "stre_act_sim", "pdf_act_sim", "pdf_bas_sim", "url_str_sim", "act_str_sim", "des_gan_sim", "img_dis_sim", "img_gan_sim", "img_inv_sim", "cod_gal_sim", "edi_sim", "vid_dis_sim", "pdf_dis_sim", "fec_crea", "fec_modif", "usu_acce", "reg_eli", 'act_sim'];
 		if ($id == 0) {
-			$data = $this->select($array)->orderBy('ano_sim', 'DESC')->limit(1)->find();
+			$data = $this->select($array)->where('act_sim', 1)->orderBy('ano_sim', 'DESC')->limit(1)->find();
 		} else {
 			$data = $this->select($array)->where('ano_sim', $id)->find();
 		}

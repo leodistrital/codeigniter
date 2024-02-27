@@ -28,9 +28,9 @@ class AuthFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-     /*
         $key = getenv('JWT_SECRET');
         $header = $request->getHeader("Authorization");
+
         // exit;
         $token = null;
 
@@ -44,7 +44,7 @@ class AuthFilter implements FilterInterface
         $data = [
             'codigo' => '401',
             'status' => 'Error',
-            'Mensaje' => 'Acceso denegado +++'
+            'Mensaje' => 'Acceso denegado'
         ];
 
         // check if token is null or empty
@@ -66,7 +66,6 @@ class AuthFilter implements FilterInterface
             $response = service('response');
             return $response->setJSON(array($data))->setStatusCode(401);
         }
-        */
     }
 
     /**

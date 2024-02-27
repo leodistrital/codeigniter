@@ -2,7 +2,7 @@
 
 namespace App\Controllers\API;
 
-use App\Models\UsuarioApiModel;
+use App\Models\api\UsuarioApiModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class Usuario extends ResourceController
@@ -55,4 +55,4 @@ class Usuario extends ResourceController
         return $this->respond($data, 200);
     }
 }
-/* fecha de creacion: 01-04-2024 03:49:23 pm */
+/* fecha de creacion: 02-26-2024 10:29:49 am */

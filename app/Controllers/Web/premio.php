@@ -80,7 +80,8 @@ class Premio extends MyApiRest
 
 
 		$array = ["ano_sim", "dir_ima", 'cod_gal_sim'];
-		$data = $simonBolivar->select($array)->join('imagenes', 'cod_gal_ima=cod_gal_sim')->groupBy('ano_sim')->orderBy('ano_sim', 'DESC')->find();
+		$data = $simonBolivar->select($array)->join('galerias', 'cod_gal=cod_gal_sim')->join('imagenes', 'cod_gal_ima=cod_gal_sim')->where('act_gal', 1)->groupBy('ano_sim')->orderBy('ano_sim', 'DESC')->find();
+		// $data = $simonBolivar->select($array)->join('imagenes', 'cod_gal_ima=cod_gal_sim')->where('act_gal', 1)->groupBy('ano_sim')->orderBy('ano_sim', 'DESC')->find();
 
 
 		foreach ($data as $item) {

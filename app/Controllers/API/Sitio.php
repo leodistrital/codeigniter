@@ -2,7 +2,7 @@
 
 namespace App\Controllers\API;
 
-use App\Models\SitioApiModel;
+use App\Models\api\SitioApiModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class Sitio extends ResourceController
@@ -55,4 +55,4 @@ class Sitio extends ResourceController
         return $this->respond($data, 200);
     }
 }
-/* fecha de creacion: 12-14-2023 02:47:18 pm */
+/* fecha de creacion: 01-22-2024 05:37:31 pm */

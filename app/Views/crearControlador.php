@@ -29,7 +29,7 @@
 
 namespace App\Controllers\API;
 
-use App\Models\\$nombreModelo;
+use App\Models\api\\$nombreModelo;
 use CodeIgniter\RESTful\ResourceController;
 
 class $tabla extends ResourceController
@@ -105,7 +105,7 @@ EOD;
 		$txt = fopen($nombre_fichero, 'a') or die('Problemas al crear el archivo');
 		fwrite($txt, $str);
 		fclose($txt)
-		?>
+			?>
 
 	</section>
 
