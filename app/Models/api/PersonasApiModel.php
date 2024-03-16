@@ -158,6 +158,7 @@ class PersonasApiModel extends Model
 
 	public function edicion($id, $request)
 	{
+		$codigoUsuario = userlogigado($request);
 		$data = [
 			'cod_per' => $id,
 			'cod_tit_per' => $request->getVar('cod_tit_per'),
@@ -193,18 +194,25 @@ class PersonasApiModel extends Model
 			'wha_per' => $request->getVar('wha_per'),
 			'fec_crea' => $request->getVar('fec_crea'),
 			'fec_modif' => $request->getVar('fec_modif'),
-			'usu_acce' => userlogigado($request),
+			'usu_acce' => $codigoUsuario,
 			'reg_eli' => $request->getVar('reg_eli')
 
 		];
 
 
 		$confirmacion = $this->save($data);
+		$sql = $this->getLastQuery();
+
+		echo gettype($sql);
+		$obj = get_object_vars($sql);
+		print_r($obj);
+		// print_r(get_object_vars($sql));
 
 		$this->GuardarSegmentos($id, $request);
 		$this->GuardarEventos($id, $request);
 		$this->GuardarEmpresas($id, $request);
 
+		// auditoria($codigoUsuario, $this->table, $sql, "edicion", $request);
 
 		if ($confirmacion == 1) {
 			return $id;

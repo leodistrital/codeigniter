@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\api\AuditoriaApiModel;
 use App\Models\api\UsuarioApiModel;
 
 // use App\Models\LabelModel;
@@ -15,12 +16,52 @@ function userlogigado($request)
     return $data['cod_usu'];
 }
 
-function leo()
-{
-    echo "leo1111";
 
+function auditoria($usuario, $modelo, $sql, $tipotransaccion, $request): void
+{
+    $auditoria = new AuditoriaApiModel();
+    $cabeceras = headerCliente($request);
+    $data = [
+        'cod_usu_aud' => $usuario,
+        'nom_tab_aud' => $modelo,
+        'transaccion' => $tipotransaccion,
+        'sql_aud' => $sql,
+        'cliente_aud' => $cabeceras,
+
+    ];
+    print_r($data);
+    // $id = $auditoria->insert($data);
+    // $auditoria = new AuditoriaApiModel ();
+    // $data = [
+    //     'cod_usu' => $usuario,
+    //     'nom_mod' => $modelo,
+    //     'sql_aud' => $sql,
+    //     'tip_tra' => $tipotransaccion
+    // ];
+    // $auditoria->insert($data);
 }
 
+
+function headerCliente($request)
+{
+    $cabecera = '';
+    // Obtener la dirección IP del cliente
+    $ip = $request->getIPAddress();
+
+    // Obtener el agente de usuario del navegador del cliente
+    $userAgent = $request->getUserAgent();
+
+    // Obtener información adicional del navegador del cliente
+    $browser = $request->getUserAgent()->getBrowser();
+    $platform = $request->getUserAgent()->getPlatform();
+
+    // Imprimir los datos obtenidos
+    $cabecera .= "Dirección IP del cliente: $ip <br>";
+    $cabecera .= "Agente de usuario del navegador: $userAgent <br>";
+    $cabecera .= "Navegador: $browser <br>";
+    $cabecera .= "Plataforma: $platform <br>";
+    return $cabecera;
+}
 
 
 // function traduccirlabeldb($texto)
