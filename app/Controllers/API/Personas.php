@@ -2,11 +2,12 @@
 
 namespace App\Controllers\API;
 
+use CodeIgniter\RESTful\ResourceController;
 use App\Models\api\D_empresa_personaApiModel;
 use App\Models\api\D_evento_personaApiModel;
 use App\Models\api\D_segmento_personaApiModel;
 use App\Models\api\PersonasApiModel;
-use CodeIgniter\RESTful\ResourceController;
+
 
 class Personas extends ResourceController
 {
@@ -27,6 +28,10 @@ class Personas extends ResourceController
 
     public function show($id = null)
     {
+
+
+
+
         $data = $this->model->listatardatos($id);
         $detallSegmentos = new D_segmento_personaApiModel();
         $data['segementos'] = $detallSegmentos->segementosPersona($id);

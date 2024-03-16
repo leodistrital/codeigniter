@@ -63,7 +63,8 @@ class Login extends BaseController
 			'usuario' => $user['nom_usu'],
 			'perfil' => $user['cod_per_usu'],
 			'message' => 'Login Succesful',
-			'token' => "Bearer" . ' ' . $token
+			'token' => "Bearer" . ' ' . $token,
+			'usertoken' => $user['token_usu']
 		];
 
 		return $this->respond($response, 200);

@@ -20,7 +20,7 @@ class ResourceController extends BaseResource
 {
     use ResponseTrait;
 
-    protected $helpers = ['loadlang_helper','cookie'];
+    protected $helpers = ['loadlang_helper', 'cookie'];
 
     /**
      * Return an array of resource objects, themselves in array format

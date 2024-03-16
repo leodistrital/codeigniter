@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models\api;
 
 use CodeIgniter\Model;
@@ -41,6 +42,7 @@ class SectorApiModel extends Model
 
 	public function listatardatos($id = 0)
 	{
+
 		$array = ["cod_sec as id", "nom_sec", "fec_crea", "fec_modif", "usu_acce", "reg_eli"];
 		if ($id == 0) {
 			$data = $this->select($array)->findAll();
@@ -52,7 +54,7 @@ class SectorApiModel extends Model
 
 	public function buscarlistatardatos($request)
 	{
-		if (!empty($request->getVar("id")))
+		if (!empty ($request->getVar("id")))
 			$this->where('cod_sec', $request->getVar("id"));
 		$array = ["cod_sec as id", "nom_sec", "fec_crea", "fec_modif", "usu_acce", "reg_eli"];
 		$data = $this->select($array)->find();
@@ -63,16 +65,11 @@ class SectorApiModel extends Model
 
 	public function guardar($request)
 	{
-
 		$data = [
-			'nom_sec' => $request->getVar('nom_sec')
-			,
-			'fec_crea' => $request->getVar('fec_crea')
-			,
-			'fec_modif' => $request->getVar('fec_modif')
-			,
-			'usu_acce' => $request->getVar('usu_acce')
-			,
+			'nom_sec' => $request->getVar('nom_sec'),
+			'fec_crea' => $request->getVar('fec_crea'),
+			'fec_modif' => $request->getVar('fec_modif'),
+			'usu_acce' => userlogigado($request),
 			'reg_eli' => $request->getVar('reg_eli')
 
 		];
@@ -84,14 +81,10 @@ class SectorApiModel extends Model
 	{
 		$data = [
 			'cod_sec' => $id,
-			'nom_sec' => $request->getVar('nom_sec')
-			,
-			'fec_crea' => $request->getVar('fec_crea')
-			,
-			'fec_modif' => $request->getVar('fec_modif')
-			,
-			'usu_acce' => $request->getVar('usu_acce')
-			,
+			'nom_sec' => $request->getVar('nom_sec'),
+			'fec_crea' => $request->getVar('fec_crea'),
+			'fec_modif' => $request->getVar('fec_modif'),
+			'usu_acce' => $request->getVar('usu_acce'),
 			'reg_eli' => $request->getVar('reg_eli')
 
 		];

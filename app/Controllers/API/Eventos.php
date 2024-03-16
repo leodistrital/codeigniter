@@ -2,6 +2,7 @@
 
 namespace App\Controllers\API;
 
+use App\Models\api\D_evento_personaApiModel;
 use App\Models\api\EventosApiModel;
 use CodeIgniter\RESTful\ResourceController;
 
@@ -17,15 +18,27 @@ class Eventos extends ResourceController
     public function index()
     {
         // $data = $this->model->listatardatos();
+
         $data = $this->model->buscarlistatardatos($this->request);
+        // echo $this->request->getVar("id");
+        $data[0]['total'] = $this->totalper($this->request->getVar("id"));
+
         return $this->respond($data, 200);
     }
 
     public function show($id = null)
     {
-
         $data = $this->model->listatardatos($id);
         return $this->respond(array('data' => $data), 200);
+    }
+
+
+    public function totalper($id = null)
+    {
+        $detalle = new D_evento_personaApiModel();
+        $data = $detalle->where('cod_eve_devp', $id)->countAllResults();
+        // echo $detalle->getLastQuery();
+        return $data;
     }
 
     public function create()

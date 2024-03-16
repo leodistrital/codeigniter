@@ -14,7 +14,7 @@ class UsuarioApiModel extends Model
 	protected $returnType = 'array';
 	protected $useSoftDeletes = true;
 	protected $protectFields = true;
-	protected $allowedFields = ["cod_usu as id", "nom_usu", "nombre_usu", "car_usu", "cc_usu", "tel_usu", "dir_usu", "log_usu", "pas_usu", "pas_usu2", "ciu_usu", "codig_usu", "cel_usu", "cod_per_usu", "susu", "spas", "fec_crea", "fec_modif", "usu_acce", "reg_eli"];
+	protected $allowedFields = ["cod_usu as id", "nom_usu", "nombre_usu", "car_usu", "cc_usu", "tel_usu", "dir_usu", "log_usu", "pas_usu", "pas_usu2", "ciu_usu", "codig_usu", "cel_usu", "cod_per_usu", "susu", "spas", "fec_crea", "fec_modif", "usu_acce", "reg_eli", 'token_usu'];
 
 	// Dates
 	protected $useTimestamps = true;
@@ -42,7 +42,7 @@ class UsuarioApiModel extends Model
 
 	public function listatardatos($id = 0)
 	{
-		$array = ["cod_usu as id", "nom_usu", "nombre_usu", "car_usu", "cc_usu", "tel_usu", "dir_usu", "log_usu", "pas_usu", "pas_usu2", "ciu_usu", "codig_usu", "cel_usu", "cod_per_usu", "susu", "spas", "fec_crea", "fec_modif", "usu_acce", "reg_eli"];
+		$array = ["cod_usu as id", "nom_usu", "nombre_usu", "car_usu", "cc_usu", "tel_usu", "dir_usu", "log_usu", "pas_usu", "pas_usu2", "ciu_usu", "codig_usu", "cel_usu", "cod_per_usu", "susu", "spas", "fec_crea", "fec_modif", "usu_acce", "reg_eli", 'token_usu'];
 		if ($id == 0) {
 			$data = $this->select($array)->findAll();
 		} else {

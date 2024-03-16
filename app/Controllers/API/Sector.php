@@ -16,7 +16,6 @@ class Sector extends ResourceController
 
     public function index()
     {
-
         $data = $this->model->buscarlistatardatos($this->request);
         return $this->respond($data, 200);
     }

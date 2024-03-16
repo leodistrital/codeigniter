@@ -28,44 +28,44 @@ class AuthFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        $key = getenv('JWT_SECRET');
-        $header = $request->getHeader("Authorization");
+        // $key = getenv('JWT_SECRET');
+        // $header = $request->getHeader("Authorization");
 
-        // exit;
-        $token = null;
+        // // exit;
+        // $token = null;
 
-        // extract the token from the header
-        if (!empty($header)) {
-            if (preg_match('/Bearer\s(\S+)/', $header, $matches)) {
-                $token = $matches[1];
-            }
-        }
+        // // extract the token from the header
+        // if (!empty($header)) {
+        //     if (preg_match('/Bearer\s(\S+)/', $header, $matches)) {
+        //         $token = $matches[1];
+        //     }
+        // }
 
-        $data = [
-            'codigo' => '401',
-            'status' => 'Error',
-            'Mensaje' => 'Acceso denegado'
-        ];
+        // $data = [
+        //     'codigo' => '401',
+        //     'status' => 'Error',
+        //     'Mensaje' => 'Acceso denegado'
+        // ];
 
-        // check if token is null or empty
-        if (is_null($token) || empty($token)) {
-            Header('Access-Control-Allow-Origin: *'); //for allow any domain, insecure
-            Header('Access-Control-Allow-Headers: *'); //for allow any headers, insecure
-            Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); //method allowed
-            $response = service('response');
-            return $response->setJSON(array($data))->setStatusCode(401);
-        }
+        // // check if token is null or empty
+        // if (is_null($token) || empty($token)) {
+        //     Header('Access-Control-Allow-Origin: *'); //for allow any domain, insecure
+        //     Header('Access-Control-Allow-Headers: *'); //for allow any headers, insecure
+        //     Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); //method allowed
+        //     $response = service('response');
+        //     return $response->setJSON(array($data))->setStatusCode(401);
+        // }
 
-        try {
+        // try {
 
-            $decoded = JWT::decode($token, new Key($key, 'HS256'));
-        } catch (Exception $ex) {
-            Header('Access-Control-Allow-Origin: *'); //for allow any domain, insecure
-            Header('Access-Control-Allow-Headers: *'); //for allow any headers, insecure
-            Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); //method allowed
-            $response = service('response');
-            return $response->setJSON(array($data))->setStatusCode(401);
-        }
+        //     $decoded = JWT::decode($token, new Key($key, 'HS256'));
+        // } catch (Exception $ex) {
+        //     Header('Access-Control-Allow-Origin: *'); //for allow any domain, insecure
+        //     Header('Access-Control-Allow-Headers: *'); //for allow any headers, insecure
+        //     Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); //method allowed
+        //     $response = service('response');
+        //     return $response->setJSON(array($data))->setStatusCode(401);
+        // }
     }
 
     /**
