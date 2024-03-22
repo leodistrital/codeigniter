@@ -203,9 +203,9 @@ class PersonasApiModel extends Model
 		$confirmacion = $this->save($data);
 		$sql = $this->getLastQuery();
 
-		echo gettype($sql);
-		$obj = get_object_vars($sql);
-		print_r($obj);
+		// echo gettype($sql);
+		// $obj = get_object_vars($sql);
+		// print_r($obj);
 		// print_r(get_object_vars($sql));
 
 		$this->GuardarSegmentos($id, $request);

@@ -79,7 +79,14 @@ $routes->group('api', ['namespace' => 'App\Controllers\API'], ['filter' => 'auth
 
 
 	$routes->group('parametros', ['namespace' => 'App\Controllers\API'], function ($routes) {
-		$routes->get('ciudades', 'ciudades::parametros');
+		// $routes->get('ciudades', 'ciudades::parametros');
+
+		$routes->get('ciudades', static function () {
+			echo "ciudades";
+		});
+
+
+		// $routes->get('ciudades', 'ciudades::parametros');
 		$routes->get('departamentos', 'departamentos::parametros');
 		$routes->get('empresas', 'empresas::parametros');
 		$routes->get('sector', 'sector::parametros');
